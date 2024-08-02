@@ -49,7 +49,7 @@ class _DashBoardMain(QWidget):
         self.stacked_widget()
         self.start_screen()
 
-        self.loding_screen()
+        self.loading_screen()
         self.dash_board_design()
 
         if self.skip_start_screen:
@@ -107,7 +107,7 @@ class _DashBoardMain(QWidget):
             self.swidget.setCurrentIndex(1)
             self.progress_bar_animation.start()
 
-    def loding_screen(self):
+    def loading_screen(self):
         loading_screen_widget = QWidget()
         loading_screen_widget.setContentsMargins(0, 0, 0, 0)
         loading_screen_widget.setFixedSize(self.width(), self.height())
@@ -125,24 +125,24 @@ class _DashBoardMain(QWidget):
         get_ready_label.setFont(saftey_rule_font)
         get_ready_label.setText("Get ready for the ride...")
 
-        loding_progress_bar = QProgressBar(loading_screen_widget)
-        loding_progress_bar.setContentsMargins(0, 0, 0, 0)
-        loding_progress_bar.setFixedSize(*map(round, (loading_screen_widget.width()*0.7, loading_screen_widget.height()*0.1)))
-        loding_progress_bar.move(self.rect().center()-loding_progress_bar.rect().center())
-        loding_progress_bar.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        loading_progress_bar = QProgressBar(loading_screen_widget)
+        loading_progress_bar.setContentsMargins(0, 0, 0, 0)
+        loading_progress_bar.setFixedSize(*map(round, (loading_screen_widget.width()*0.7, loading_screen_widget.height()*0.1)))
+        loading_progress_bar.move(self.rect().center()-loading_progress_bar.rect().center())
+        loading_progress_bar.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        loding_progress_bar_font = QFont("Consolas", 0, 0, True)
-        loding_progress_bar_font.setBold(True)
-        loding_progress_bar_font.setPixelSize(round(self.width()*0.04))
-        loding_progress_bar.setFont(loding_progress_bar_font)
+        loading_progress_bar_font = QFont("Consolas", 0, 0, True)
+        loading_progress_bar_font.setBold(True)
+        loading_progress_bar_font.setPixelSize(round(self.width()*0.04))
+        loading_progress_bar.setFont(loading_progress_bar_font)
 
         grad = "qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 {color1}, stop:{value} {color2}, stop: 1.0 {color3});".format(
             color1=QColor(240, 0, 0).name(), color2=QColor(255, 80, 0).name(), color3=QColor(255, 255, 0).name(), value=0.3)
-        loding_progress_bar.setStyleSheet("QProgressBar {background-color: rgba(0, 0, 0, 0); color: white; border-radius: %spx;}"%str(loding_progress_bar.height()//2)
-            + "QProgressBar::chunk {background-color: %s; border-radius: %spx;}"%(grad, str(loding_progress_bar.height()//2)))
+        loading_progress_bar.setStyleSheet("QProgressBar {background-color: rgba(0, 0, 0, 0); color: white; border-radius: %spx;}"%str(loading_progress_bar.height()//2)
+            + "QProgressBar::chunk {background-color: %s; border-radius: %spx;}"%(grad, str(loading_progress_bar.height()//2)))
 
-        self.progress_bar_animation = QPropertyAnimation(loding_progress_bar, b"value")
-        self.progress_bar_animation.setStartValue(loding_progress_bar.height()*0.2)
+        self.progress_bar_animation = QPropertyAnimation(loading_progress_bar, b"value")
+        self.progress_bar_animation.setStartValue(loading_progress_bar.height()*0.2)
         self.progress_bar_animation.valueChanged.connect(self.driving_rule_info)
         self.progress_bar_animation.setEndValue(100)
         self.progress_bar_animation.setDuration(3000)
@@ -170,7 +170,7 @@ class _DashBoardMain(QWidget):
             self.dash_board_design_widget.start_up_animation()
 
     def dash_board_design(self):
-        self.dash_board_design_widget = _DashBoardContolsDesign(self.swidget)
+        self.dash_board_design_widget = _DashBoardControlsDesign(self.swidget)
         self.swidget.addWidget(self.dash_board_design_widget)
 
     def mouseDoubleClickEvent(self, event):
@@ -256,10 +256,10 @@ class _DashBoardMain(QWidget):
         return super().eventFilter(source, event)
 
 
-class _DashBoardContolsDesign(QWidget):
+class _DashBoardControlsDesign(QWidget):
     """WARNING: This is a private class. do not import this."""
     def __init__(self, parent=None):
-        super(_DashBoardContolsDesign, self).__init__(parent)
+        super(_DashBoardControlsDesign, self).__init__(parent)
         self.parent_ = parent
         self.resize(self.parent_.size())
         self.setContentsMargins(0, 0, 0, 0)
@@ -1105,7 +1105,7 @@ class TriggerAction():
 
 
     def skip_start_screen(self, skip: bool):
-        """Skip start screen and directly go to loding screen \n note: this method should \
+        """Skip start screen and directly go to loading screen \n note: this method should \
             be called before you call launch_dashboard() method to take effect"""
         self.__dbc.skip_start_screen(skip)
 
