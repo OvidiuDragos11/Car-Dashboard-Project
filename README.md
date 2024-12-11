@@ -6,3 +6,4 @@ Python
 . For creating the objects, I have used
 Object-Oriented Programming
 principles.
+![Project image](Project.png)
