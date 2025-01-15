@@ -7,3 +7,4 @@ Python
 Object-Oriented Programming
 principles.
 ![Project](Project.PNG)
+![Project hardware](https://github.com/OvidiuDragos11/CarDashboard/blob/master/Project%20hardware.jpg)
