@@ -2,8 +2,7 @@ This project aims to develop a digital dashboard for an electric car. The main g
 For developing the interface, I used
 PyQt5
 framework, and for the functionalities,
-Python
-. For creating the objects, I have used
+Python. For creating the objects, I have used
 Object-Oriented Programming
 principles.
 ![Project](Project.PNG)
