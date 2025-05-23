@@ -7,5 +7,5 @@ Object-Oriented Programming
 principles.
 ![Project](Project.PNG)
   
-The dashboard can be controlled from the push-buttons, connected to a Raspbery Pi 4B.
+The dashboard can be controlled from the push-buttons, connected to a Raspberry Pi 4B.
 ![Project hardware](https://github.com/OvidiuDragos11/CarDashboard/blob/master/Project%20hardware.jpg)
